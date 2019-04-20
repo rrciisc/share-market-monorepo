@@ -1,6 +1,0 @@
-[submodule "server"]
-	path = server
-	url = git@github.com:rrciisc/share-market-server.git
-[submodule "client"]
-	path = client
-	url = git@github.com:rrciisc/share-market-client.git
