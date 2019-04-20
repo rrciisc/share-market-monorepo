@@ -1,0 +1,9 @@
+{
+  "name": "share-market-monorepo",
+  "version": "0.0.0",
+  "description": "Monorepo containing both client code and server(api) code as submodules",
+  "repository": "https://github.com/rrciisc/share-market-monorepo",
+  "author": "Rooparam Choudhary",
+  "license": "MIT",
+  "private": true
+}
