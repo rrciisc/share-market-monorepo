@@ -2,8 +2,24 @@
   "name": "share-market-monorepo",
   "version": "0.0.0",
   "description": "Monorepo containing both client code and server(api) code as submodules",
+  "scripts": {
+    "install": "yarn install:client && yarn install:server",
+    "install:client": "(cd ./client && yarn install)",
+    "install:server": "(cd ./server && yarn install)",
+    "build": "yarn build:client",
+    "build:client": "(cd ./client && yarn build)",
+    "start": "yarn start:dev",
+    "start:dev": "yarn start:client & yarn start:server",
+    "start:client": "(cd ./client && yarn start)",
+    "start:server": "(cd ./server && yarn start)"
+  },
   "repository": "https://github.com/rrciisc/share-market-monorepo",
   "author": "Rooparam Choudhary",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "engines": {
+    "yarn": "1.15.2",
+    "npm": "6.7.0",
+    "node": "11.10.1"
+  }
 }
