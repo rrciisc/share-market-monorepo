@@ -4,7 +4,7 @@ import * as express from 'express';
 import { join } from 'path';
 
 const NEST_PORT = process.env.PORT || 3000;
-const CLIENT_FILES = join(__dirname, '..', '..', 'client', 'dist', 'share-market-client');
+const CLIENT_FILES = join(__dirname, '..', '..', 'client', 'dist');
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
