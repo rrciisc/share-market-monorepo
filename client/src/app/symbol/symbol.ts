@@ -3,6 +3,7 @@ export class Symbol {
 		public companyName: string,
 		public symbol: string,
 		public lastPrice: number,
-		public change: number
+		public change: number,
+		public deliveryPercentage: number
 	) {}
 }

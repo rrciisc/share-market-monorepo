@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Symbol } from '../symbol/symbol';
+import { MarketService } from '../market/market.service';
 
 @Component({
   selector: 'app-symbol-list',
@@ -8,16 +9,25 @@ import { Symbol } from '../symbol/symbol';
 })
 export class SymbolListComponent implements OnInit {
   public viewModels: Symbol[] = [];
+  private symbols: string[];
 
-  constructor() {
-    const infy = new Symbol('Infosys Ltd', 'INFY', 717.05, -7.05);
-    const wipro = new Symbol('Wipro', 'WIPRO', 284.80, 3.90);
-    const rel = new Symbol('Reliance Inds', 'RELIANCE', 1385.95, 42.20);
-    this.viewModels.push(wipro, infy, rel);
+  constructor(private marketService: MarketService) {
+    this.symbols = [
+      'SPAL', 'GUFICBIO', 'WELENT', 'JSL', 'SURYAROSNI', 'SCHAND',
+      'VISAKAIND', 'LAURUSLABS', 'DWARKESH', 'ASTEC',
+      'DMART', 'SBIN', 'INFY', 'TCS', 'ICICIBANK', 'HDFCBANK', 'WIPRO'
+    ];
   }
 
   ngOnInit() {
     ($('table.sortable') as any).tablesort();
+
+    for (let i = 0; i < this.symbols.length; i++) {
+      this.marketService.getSymbolInfo(this.symbols[i]).subscribe(info => {
+        this.viewModels.push(info);
+        this.viewModels.sort((a, b) => b.deliveryPercentage - a.deliveryPercentage);
+      });
+    }
   }
 
 }
