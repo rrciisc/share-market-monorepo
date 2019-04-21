@@ -1,19 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MarketService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getMarketStatus(): Observable<string> {
-    return Observable.create(observer => {
-      observer.next('closed');
-      setTimeout(() => observer.next('open'), 3000);
-      setTimeout(() => observer.next('closed'), 10000);
-      setTimeout(() => observer.complete(), 11000);
-    });
+    return this.http.get<string>('/api/market/status');
   }
 }

@@ -6,7 +6,9 @@ export class MarketController {
 	constructor(private readonly marketService: MarketService) {}
 
 	@Get('status')
-	getMarketStatus(): string {
-		return this.marketService.getMarketStatus();
+	async getMarketStatus(): Promise<string> {
+		return this.marketService.getMarketStatus().then(status => {
+			return JSON.stringify(status);
+		});
 	}
 }
