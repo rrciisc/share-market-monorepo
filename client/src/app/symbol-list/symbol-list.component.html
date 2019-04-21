@@ -1,0 +1,17 @@
+<table class="ui sortable striped table">
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th class="right aligned">Last Price</th>
+      <th class="right aligned">Change</th>
+      <th class="right aligned">% Change</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vm of viewModels"
+        app-symbol
+        [ngClass]="{'positive': vm.change > 0, 'negative': vm.change < 0}"
+        [vm]="vm">
+    </tr>
+  </tbody>
+</table>

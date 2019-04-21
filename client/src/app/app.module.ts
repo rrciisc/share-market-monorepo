@@ -2,20 +2,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
 
-import { SuiModule } from "ng2-semantic-ui";
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SymbolComponent } from './symbol/symbol.component';
+import { SymbolListComponent } from './symbol-list/symbol-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SymbolComponent,
+    SymbolListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    SuiModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
