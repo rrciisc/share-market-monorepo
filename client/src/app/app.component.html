@@ -1,4 +1,10 @@
-<div class="ui raised very padded container segment">
+<div class="ui raised container segment">
+  <div class="ui right ribbon label"
+     *ngIf="marketStatus"
+     [ngClass]="{'red': marketStatus === 'closed', 'teal': marketStatus === 'open'}"
+  >
+    Market {{ marketStatus }}
+  </div>
   <h1 class="ui center aligned teal dividing header">
     <i class="chart bar outline icon"></i>
     {{ title }}

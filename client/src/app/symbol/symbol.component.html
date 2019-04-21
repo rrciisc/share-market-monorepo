@@ -1,5 +1,10 @@
 
-<td>{{ vm.companyName | uppercase }}</td>
+<td class="content">
+  <a>
+    {{ vm.symbol | uppercase }}
+  </a>
+  ( {{ vm.companyName }} )
+</td>
 <td class="right aligned">{{ vm.lastPrice | currency:'INR' }}</td>
 <td class="right aligned">{{ vm.change | currency:'INR' }}</td>
 <td class="right aligned">{{ vm.change * 100 / (vm.lastPrice - vm.change) | number:'1.2-2' }} %</td>
