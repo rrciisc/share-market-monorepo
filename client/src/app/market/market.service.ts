@@ -17,4 +17,8 @@ export class MarketService {
   getSymbolInfo(id: string): Observable<Symbol> {
     return this.http.get<Symbol>(`/api/market/symbol/${id}`);
   }
+
+  getSymbolsInfo(ids: string[]): Observable<Symbol[]> {
+    return this.http.get<Symbol[]>(`/api/market/symbols/${ids.join(',')}`);
+  }
 }

@@ -22,12 +22,10 @@ export class SymbolListComponent implements OnInit {
   ngOnInit() {
     ($('table.sortable') as any).tablesort();
 
-    for (let i = 0; i < this.symbols.length; i++) {
-      this.marketService.getSymbolInfo(this.symbols[i]).subscribe(info => {
-        this.viewModels.push(info);
-        this.viewModels.sort((a, b) => b.deliveryPercentage - a.deliveryPercentage);
-      });
-    }
+    this.marketService.getSymbolsInfo(this.symbols).subscribe(info => {
+      this.viewModels = info;
+      this.viewModels.sort((a, b) => b.deliveryPercentage - a.deliveryPercentage);
+    });
   }
 
 }
