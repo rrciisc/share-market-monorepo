@@ -15,7 +15,7 @@ export class MarketService {
 			})
 			.catch(error => {
 				console.error(`getMarketStatus failed. status(${error.status}) message(${error.message})`);
-				reject(error);
+				reject('getMarketStatus failed');
 			});
 		});
 	}
@@ -117,8 +117,8 @@ export class MarketService {
 				*/
 			})
 			.catch(error => {
-				console.error(`getQuoteInfo failed for '${quote}'. status(${error.status}) message(${error.message})`);
-				reject(error);
+				console.error(`getDeliveryInfo failed for '${quote}'. status(${error.status}) message(${error.message})`);
+				reject('getDeliveryInfo failed');
 			});
 		});
 	}
